@@ -73,7 +73,7 @@ void draw()
 		for(j=0;j<50;j++)
 		{
 			isPrinted = 0;
-		 	for(k=0;k<=snake.lenght;k++){
+		 	for(k=0;k<=snake.lenght;k++){ //3 rd loop for print snake body 
 		
 				if( ( (i==0 && j!=0 && j!=49) || (i==19 && j!=0 && j!= 49) ) && isPrinted == 0  )
 					printf("-");
@@ -86,7 +86,7 @@ void draw()
 				
 				else if(j==snake.tailX[k] && i==snake.tailY[k] && k!=0)
 				{
-					printf("\b");
+					printf("\b"); // delete empty (" ") character.
 					printf("*");					
 				}
 				
@@ -111,13 +111,14 @@ void draw()
 
 void gameLoop()
 {
+	
 	IsGameOver();
 	int i,j,tempy[150],tempx[150];
 	tempy[0] = snake.headY;
 	tempx[0] = snake.headX;
-	Movement();
 	
-		 
+	//MOVEMENT
+	Movement(); 
 	if(direction == UP){
 		snake.head[1] = '^';
 		if(snake.headY != 1)
@@ -140,10 +141,10 @@ void gameLoop()
 				snake.headX -= 1;
 			else 
 				snake.headX = 48;
-	}		//LEFT
+	}		/
 			
 			
-			//RIGHT
+		
 			
 	else if(direction == RIGHT){
 		snake.head[1] = '>';
@@ -153,7 +154,7 @@ void gameLoop()
 				snake.headX = 1;
 	}
 
-			
+	//MOVEMENT END		
 			
 	  //Follow Snake's Head
 		for(i=1;i<=snake.lenght;i++){
@@ -190,7 +191,7 @@ char getKey()
 	int ch;
 	 if ( _kbhit() ) // If something pressed in keyboard
 	 {
-       ch = _getch();
+        ch = _getch();
 	if(ch==100 || ch == 68)
 	return 'D';
 	else if(ch==97 || ch==65)
