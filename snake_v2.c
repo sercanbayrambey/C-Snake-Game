@@ -17,6 +17,7 @@ void Movement();
 char GetKey();
 void Reset();
 void IsGameOver();
+void hidecursor();
 
 enum Direction
 {
