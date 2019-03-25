@@ -32,7 +32,7 @@ struct Food
 
 struct Snake
 {
-	int tailX[150],tailY[150],headX,headY;
+	int tailX[350],tailY[350],headX,headY;
 	int lenght;
 	char head[1];
 }snake;
@@ -115,7 +115,7 @@ void draw()
 void gameLoop()
 {
 	IsGameOver();
-	int i,j,tempy[150],tempx[150];
+	int i,j,tempy[350],tempx[350];
 	tempy[0] = snake.headY;
 	tempx[0] = snake.headX;
 	Movement();
