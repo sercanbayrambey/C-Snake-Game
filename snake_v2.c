@@ -33,7 +33,7 @@ struct Food
 struct Snake
 {
 	int tailX[350],tailY[350],headX,headY;
-	int lenght;
+	int length;
 	char head[1];
 }snake;
 
@@ -53,7 +53,7 @@ void Start()
 	isGameOver = 0;
 	srand(time(NULL));
 	FoodGenerator();
-	snake.lenght = 10;
+	snake.length = 10;
 	snake.headX = 10;
 	snake.headY = 10;
 	isPrinted = 0;
@@ -76,7 +76,7 @@ void draw()
 		for(j=0;j<50;j++)
 		{
 			isPrinted = 0;
-		 	for(k=0;k<=snake.lenght;k++){
+		 	for(k=0;k<=snake.length;k++){
 		
 				if( ( (i==0 && j!=0 && j!=49) || (i==19 && j!=0 && j!= 49) ) && isPrinted == 0  )
 					printf("-");
@@ -107,7 +107,7 @@ void draw()
 		
 		printf("\n");
 		printf("Snake: y= %d x= %d",snake.headY,snake.headX);
-		printf("\nScore: %d",snake.lenght-5);
+		printf("\nScore: %d",snake.length-5);
 	
 }
 
@@ -159,7 +159,7 @@ void gameLoop()
 			
 			
 	  //Follow Snake's Head
-		for(i=1;i<=snake.lenght;i++){
+		for(i=1;i<=snake.length;i++){
 				tempy[i] = snake.tailY[i]; 
 				tempx[i] = snake.tailX[i];
 				snake.tailY[i] = tempy[i-1];
@@ -171,7 +171,7 @@ void gameLoop()
 	//Is Take Food?
 	if(food.x == snake.headX && food.y == snake.headY)
 	{
-		snake.lenght++;
+		snake.length++;
 		FoodGenerator();
 	}
 	
@@ -227,7 +227,7 @@ void Movement()
 void IsGameOver()
 {
 	int i;
-	for(i=1;i<=snake.lenght;i++)
+	for(i=1;i<=snake.length;i++)
 	{
 		if(snake.headX == snake.tailX[i] && snake.headY==snake.tailY[i])
 		{
@@ -247,7 +247,7 @@ void IsGameOver()
 void Reset()
 {
 	int i;
-	for(i=0;i<=snake.lenght;i++)
+	for(i=0;i<=snake.length;i++)
 	{
 		snake.tailX[i] = 0;
 		snake.tailY[i] = 0;
